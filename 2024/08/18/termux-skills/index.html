@@ -1,0 +1,383 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Termux 的一些小技巧 | Akina's blog</title><meta name="author" content="Akina"><meta name="copyright" content="Akina"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Termux 作为 Android 上最知名的终端软件，它所包含的内容超乎你的想象。不如来看看这些小技巧，有哪些是你不知道的？  自定义终端字体Termux 默认使用系统字体，但你也可以自定义它。自定义字体的路径在 &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.termux&#x2F;font.ttf 。你可以更改它为一个 NerdFont 来获取更好的终端体验。 自定义终端配色Te">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Termux 的一些小技巧">
+<meta property="og:url" content="https://blog.nnyyaa.eu.org/2024/08/18/termux-skills/index.html">
+<meta property="og:site_name" content="Akina&#39;s blog">
+<meta property="og:description" content="Termux 作为 Android 上最知名的终端软件，它所包含的内容超乎你的想象。不如来看看这些小技巧，有哪些是你不知道的？  自定义终端字体Termux 默认使用系统字体，但你也可以自定义它。自定义字体的路径在 &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.termux&#x2F;font.ttf 。你可以更改它为一个 NerdFont 来获取更好的终端体验。 自定义终端配色Te">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/108107785">
+<meta property="article:published_time" content="2024-08-18T07:14:42.000Z">
+<meta property="article:modified_time" content="2024-08-18T07:14:42.000Z">
+<meta property="article:author" content="Akina">
+<meta property="article:tag" content="termux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/108107785"><link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/108107785?size=32"><link rel="canonical" href="https://blog.nnyyaa.eu.org/2024/08/18/termux-skills/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/Akina's%20blog" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"此文章已经有","messageNext":"天没有更新了喵, 所以它的内容可能是过时的喵……"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Termux 的一些小技巧',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-18 15:14:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/108107785" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/plain.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/banner.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Akina's blog"><span class="site-name">Akina's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/plain.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Termux 的一些小技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-18T07:14:42.000Z" title="发表于 2024-08-18 15:14:42">2024-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-18T07:14:42.000Z" title="更新于 2024-08-18 15:14:42">2024-08-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Termux 的一些小技巧"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>Termux 作为 Android 上最知名的终端软件，它所包含的内容超乎你的想象。不如来看看这些小技巧，有哪些是你不知道的？</p>
+</blockquote>
+<h2 id="自定义终端字体"><a href="#自定义终端字体" class="headerlink" title="自定义终端字体"></a>自定义终端字体</h2><p>Termux 默认使用系统字体，但你也可以自定义它。自定义字体的路径在 <code>/data/data/com.termux/files/home/.termux/font.ttf</code> 。你可以更改它为一个 <a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">NerdFont</a> 来获取更好的终端体验。</p>
+<h2 id="自定义终端配色"><a href="#自定义终端配色" class="headerlink" title="自定义终端配色"></a>自定义终端配色</h2><p>Termux 还支持用户自定义终端配色。配色文件在 <code>/data/data/com.termux/files/home/.termux/color.properties</code> 。<span class="spoiler" onclick="this.classList.toggle('spoiler')"><span class="spoiler-blur ">虽然笔者更喜欢原版配色。</span></span></p>
+<h2 id="自定义终端配置"><a href="#自定义终端配置" class="headerlink" title="自定义终端配置"></a>自定义终端配置</h2><div class="note info simple"><p>Termux 的终端配置主要集中在 <code>/data/data/com.termux/files/home/.termux/termux.properties</code>。<br>本小章内容都是对于此文件的修改。</p>
+</div>
+
+<h3 id="黑色UI主题"><a href="#黑色UI主题" class="headerlink" title="黑色UI主题"></a>黑色UI主题</h3><p>找到 <code>use-black-ui</code> 行，将其取消注释改为 <code>true</code>即可启动黑暗模式主题。</p>
+<div class="note info simple"><p>当系统为安卓9+且开启了暗黑模式时，此选项自动为 <code>true</code></p>
+</div>
+
+<h3 id="终端切换快捷键"><a href="#终端切换快捷键" class="headerlink" title="终端切换快捷键"></a>终端切换快捷键</h3><figure class="highlight text"><table><tr><td class="code"><pre><code class="hljs text"># Open a new terminal with ctrl + t (volume down + t)<br>shortcut.create-session=ctrl + t<br><br># Go one session down with (for example) ctrl + 2<br>shortcut.next-session=ctrl + 2<br><br># Go one session up with (for example) ctrl + 1<br>shortcut.previous-session=ctrl + 1<br><br># Rename a session with (for example) ctrl + n<br>shortcut.rename-session=ctrl + n<br></code></pre></td></tr></table></figure>
+
+<h2 id="自定义欢迎辞"><a href="#自定义欢迎辞" class="headerlink" title="自定义欢迎辞"></a>自定义欢迎辞</h2><p>Termux 的欢迎辞存储在<code>/data/data/com.termux/files/usr/etc/motd</code>。你可以随意修改它，但请注意，它仅作为一格文本文件，其中的命令不会被执行。</p>
+<p>要想要打开Termux自动执行命令，你可以修改<code>/data/data/com.termux/files/usr/etc/profile</code>，就和正常Linux发行版一样。</p>
+<p>当然，你还有一个选择: <code>/data/data/com.termux/files/usr/etc/termux-login.sh</code>。正如它的名字一样，你也可以修改它来实现自动执行命令。</p>
+<div class="note info simple"><p><code>termux-login.sh</code>会在<code>profile</code>之前执行。</p>
+</div>
+
+<h2 id="自定义登录shell"><a href="#自定义登录shell" class="headerlink" title="自定义登录shell"></a>自定义登录shell</h2><p>Termux支持使用chsh来切换默认shell。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh">chsh -s zsh <span class="hljs-comment"># 指定shell</span><br></code></pre></td></tr></table></figure>
+
+<div class="note warning simple"><p>Termux的chsh并不是真正意义上的<code>chsh</code>。</p>
+</div>
+
+<p>通过分析<code>chsh</code>命令，可以发现它其实是一个shell脚本：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/data/data/com.termux/files/usr/bin/sh</span><br><br><span class="hljs-built_in">set</span> -e -u<br><br><span class="hljs-function"><span class="hljs-title">show_usage</span></span> () &#123;<br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;usage: chsh [-s shell]&quot;</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Change the login shell.&quot;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">set_shell</span></span> () &#123;<br>        <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> = login ]; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;login is not a valid shell&quot;</span><br>                <span class="hljs-built_in">exit</span> 1<br>        <span class="hljs-keyword">fi</span><br>        <span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$HOME</span>/.termux<br>        NEW_SHELL=/data/data/com.termux/files/usr/bin/<span class="hljs-variable">$1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> -x <span class="hljs-variable">$NEW_SHELL</span> -a ! -d <span class="hljs-variable">$NEW_SHELL</span>; <span class="hljs-keyword">then</span><br>                <span class="hljs-built_in">ln</span> -f -s <span class="hljs-variable">$NEW_SHELL</span> <span class="hljs-variable">$HOME</span>/.termux/shell<br>        <span class="hljs-keyword">else</span><br>                <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$NEW_SHELL</span> is not an executable file!&quot;</span><br>        <span class="hljs-keyword">fi</span><br>&#125;<br><br>O=`getopt -l <span class="hljs-built_in">help</span> -- hs: <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>`<br><span class="hljs-built_in">eval</span> <span class="hljs-built_in">set</span> -- <span class="hljs-string">&quot;<span class="hljs-variable">$O</span>&quot;</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-keyword">in</span><br>                -h|--<span class="hljs-built_in">help</span>) show_usage; <span class="hljs-built_in">exit</span> 0;;<br>                -s) set_shell <span class="hljs-variable">$2</span>; <span class="hljs-built_in">exit</span> 0;;<br>                --)     <span class="hljs-built_in">shift</span>; <span class="hljs-built_in">break</span>;;<br>                *)      <span class="hljs-built_in">echo</span> Error; show_usage; <span class="hljs-built_in">exit</span> 1;;<br>        <span class="hljs-keyword">esac</span><br><span class="hljs-keyword">done</span><br><br>DEFAULT_SHELL=bash<br><span class="hljs-keyword">if</span> [ ! -x /data/data/com.termux/files/usr/bin/<span class="hljs-variable">$DEFAULT_SHELL</span> ]; <span class="hljs-keyword">then</span> DEFAULT_SHELL=sh; <span class="hljs-keyword">fi</span><br><br><span class="hljs-built_in">echo</span> Changing the login shell<br><span class="hljs-built_in">echo</span> Enter the new value, or press ENTER <span class="hljs-keyword">for</span> the default<br><span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;        Login Shell [<span class="hljs-variable">$DEFAULT_SHELL</span>]: &quot;</span><br><span class="hljs-built_in">read</span> shell<br><br><span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$shell</span>&quot;</span> ]; <span class="hljs-keyword">then</span> shell=<span class="hljs-variable">$DEFAULT_SHELL</span>; <span class="hljs-keyword">fi</span><br>set_shell <span class="hljs-variable">$shell</span><br></code></pre></td></tr></table></figure>
+
+<p>分析此脚本我们可以得知，更改shell其实就是创建了一个软链接<code>/data/data/com.termux/files/home/.termux/shell</code>并链接到可执行的shell上。因此你其实可以自己更改默认shell。</p>
+<div class="note info simple"><p>此外，Termux的<code>sh</code>并不是sh，而是<code>dash</code>。</p>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.nnyyaa.eu.org">Akina</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.nnyyaa.eu.org/2024/08/18/termux-skills/">https://blog.nnyyaa.eu.org/2024/08/18/termux-skills/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.nnyyaa.eu.org" target="_blank">Akina's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/termux/">termux</a></div><div class="post_share"><div class="social-share" data-image="https://avatars.githubusercontent.com/u/108107785" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/11/android-lxc-md/" title="在 Android 上原生运行 LXC"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">在 Android 上原生运行 LXC</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://avatars.githubusercontent.com/u/108107785" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Akina</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/AkinaAcct"><i class="fab fa-github"></i><span>GitHub</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93"><span class="toc-number">1.</span> <span class="toc-text">自定义终端字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%88%E7%AB%AF%E9%85%8D%E8%89%B2"><span class="toc-number">2.</span> <span class="toc-text">自定义终端配色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">自定义终端配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%91%E8%89%B2UI%E4%B8%BB%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">黑色UI主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E5%88%87%E6%8D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">3.2.</span> <span class="toc-text">终端切换快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AC%A2%E8%BF%8E%E8%BE%9E"><span class="toc-number">4.</span> <span class="toc-text">自定义欢迎辞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%99%BB%E5%BD%95shell"><span class="toc-number">5.</span> <span class="toc-text">自定义登录shell</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Akina</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://icp.gov.moe/?keyword=20240601" target="_blank">萌ICP备20240601号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const initGitalk = () => {
+    const gitalk = new Gitalk(Object.assign({
+      clientID: 'faa046b4ec114802be9d',
+      clientSecret: 'e7bd3124aaaa3994d46ddd1ed35cce65c291e73e',
+      repo: 'BLOG',
+      owner: 'AkinaAcct',
+      admin: ['AkinaAcct'],
+      id: 'cc30211119a89e2145a832e041807171',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async() => {
+    if (typeof Gitalk === 'function') initGitalk()
+    else {
+      await getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+      await getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js')
+      initGitalk()
+    }
+  }
+  
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  if ('Gitalk' === 'Gitalk' || !true) {
+    if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="2601392535" data-server="netease" data-type="song" data-fixed="true" data-autoplay="false"> </div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
