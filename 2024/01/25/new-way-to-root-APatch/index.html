@@ -251,10 +251,10 @@ APatch中文网
 <p><del>尽可能将APatch管理器的语言设置为英语！其他语言有可能会导致app崩溃！</del> Update: Fixed.</p>
 </blockquote>
 <h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><p>确保你的内核开了以下依赖:</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CONFIG_KALLSYMS</span>=y<br><span class="hljs-attr">CONFIG_KALLSYMS_ALL</span>=y<br><span class="hljs-attr">DEBUG_KERNEL</span>=y<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CONFIG_KALLSYMS</span>=y<br><span class="hljs-attr">CONFIG_KALLSYMS_ALL</span>=y<br><span class="hljs-attr">DEBUG_KERNEL</span>=y<br></code></pre></td></tr></table></figure>
 
 <p>你可以使用下面的命令来检查:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">su -c <span class="hljs-string">&quot;zcat /proc/config.gz&quot;</span> | grep KALLSYMS<br>su -c <span class="hljs-string">&quot;zcat /proc/config.gz&quot;</span> | grep DEBUG_KERNEL<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">su -c <span class="hljs-string">&quot;zcat /proc/config.gz&quot;</span> | grep KALLSYMS<br>su -c <span class="hljs-string">&quot;zcat /proc/config.gz&quot;</span> | grep DEBUG_KERNEL<br></code></pre></td></tr></table></figure>
 
 <p>确保它们的值都为y</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="修补"><a href="#修补" class="headerlink" title="修补"></a>修补</h3><ul>
@@ -273,7 +273,7 @@ APatch中文网
 <li>使用任意的分区刷写软件将修补过的boot镜像刷入boot分区。</li>
 </ul>
 <p>这里使用fastboot做例子:<br>先将修补过的boot复制到用来执行fastboot操作的设备上，随后使用下面的命令刷入boot镜像:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">fastboot flash boot &#123;修补过的boot镜像路径&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">fastboot flash boot &#123;修补过的boot镜像路径&#125;<br></code></pre></td></tr></table></figure>
 
 <p>随后重启你的设备。</p>
 <blockquote>
