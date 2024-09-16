@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>bash中的一些特殊变量 | Akina's blog</title><meta name="author" content="Akina"><meta name="copyright" content="Akina"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="题外话:我不会告诉你写这篇博文的原因是我自己记不住   $NUM  NUM表示1-10之间任意一个数字(因为大于10可能会跟bash内部变量冲突XD).与此同时,$1表示第一个参数,$2表示第二个参数…反正就是这么个规律.此外注意,$0表示该文件的文件名.    $$  $$表示当前进程的PID PID是什么?    $#  $#表示参数个数.   e.g. 12345678910test.sh:">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>bash中的一些特殊变量 | Akina's blog</title><meta name="author" content="Akina"><meta name="copyright" content="Akina"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="题外话:我不会告诉你写这篇博文的原因是我自己记不住   $NUM  NUM表示1-10之间任意一个数字(因为大于10可能会跟bash内部变量冲突XD).与此同时,$1表示第一个参数,$2表示第二个参数…反正就是这么个规律.此外注意,$0表示该文件的文件名.    $$  $$表示当前进程的PID PID是什么?    $#  $#表示参数个数.   e.g. test.sh:#!&#x2F;bin&#x2F;bash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bash中的一些特殊变量">
 <meta property="og:url" content="https://blog.nnyyaa.eu.org/2023/04/30/bash_special_variable/index.html">
 <meta property="og:site_name" content="Akina&#39;s blog">
-<meta property="og:description" content="题外话:我不会告诉你写这篇博文的原因是我自己记不住   $NUM  NUM表示1-10之间任意一个数字(因为大于10可能会跟bash内部变量冲突XD).与此同时,$1表示第一个参数,$2表示第二个参数…反正就是这么个规律.此外注意,$0表示该文件的文件名.    $$  $$表示当前进程的PID PID是什么?    $#  $#表示参数个数.   e.g. 12345678910test.sh:">
+<meta property="og:description" content="题外话:我不会告诉你写这篇博文的原因是我自己记不住   $NUM  NUM表示1-10之间任意一个数字(因为大于10可能会跟bash内部变量冲突XD).与此同时,$1表示第一个参数,$2表示第二个参数…反正就是这么个规律.此外注意,$0表示该文件的文件名.    $$  $$表示当前进程的PID PID是什么?    $#  $#表示参数个数.   e.g. test.sh:#!&#x2F;bin&#x2F;bash">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/108107785">
 <meta property="article:published_time" content="2023-04-30T13:06:33.000Z">
@@ -240,7 +240,7 @@ p.spoiler {
 </ol>
 <p><code>$#</code>表示参数个数.  </p>
 <p>e.g.</p>
-<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs d">test.sh:<br><br><span class="hljs-meta">#!/bin/bash</span><br>echo <span class="hljs-string">&quot;参数个数为: $#&quot;</span><br><br>root<span class="hljs-keyword">@localhost</span> ~# chmod +x test.sh<br>root<span class="hljs-keyword">@localhost</span> ~# ./test.sh aaa bbb<br>参数个数为: <span class="hljs-number">2</span><br>root<span class="hljs-keyword">@localhost</span> ~# ./test.sh aaa bbb ccc<br>参数个数为: <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight d"><table><tr><td class="code"><pre><code class="hljs d">test.sh:<br><br><span class="hljs-meta">#!/bin/bash</span><br>echo <span class="hljs-string">&quot;参数个数为: $#&quot;</span><br><br>root<span class="hljs-keyword">@localhost</span> ~# chmod +x test.sh<br>root<span class="hljs-keyword">@localhost</span> ~# ./test.sh aaa bbb<br>参数个数为: <span class="hljs-number">2</span><br>root<span class="hljs-keyword">@localhost</span> ~# ./test.sh aaa bbb ccc<br>参数个数为: <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
 
 <ol start="4">
 <li><code>$?</code></li>
@@ -250,7 +250,7 @@ p.spoiler {
 <li><code>$@</code>与<code>$*</code></li>
 </ol>
 <p>之所以把这两个放在一起,是因为这两个变量的输出人眼看来是一样的<br>e.g.:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">test.sh:<br><br><span class="hljs-comment">#!/bin/bash</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;@ = <span class="hljs-variable">$@</span>&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;* = $*&quot;</span><br><br>root@localhost ~# <span class="hljs-built_in">chmod</span> +x <span class="hljs-built_in">test</span><br>root@localhost ~# ./test.sh aaa bbb ccc<br>@ = aaa bbb ccc<br>* = aaa bbb ccc<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">test.sh:<br><br><span class="hljs-comment">#!/bin/bash</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;@ = <span class="hljs-variable">$@</span>&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;* = $*&quot;</span><br><br>root@localhost ~# <span class="hljs-built_in">chmod</span> +x <span class="hljs-built_in">test</span><br>root@localhost ~# ./test.sh aaa bbb ccc<br>@ = aaa bbb ccc<br>* = aaa bbb ccc<br></code></pre></td></tr></table></figure>
 
 
 <p>有不同吗?当然有了!<br><code>$@</code>的输出结果为单独输出每个参数<br><code>$*</code>的输出结果为以一个字符串输出所有参数  </p>
